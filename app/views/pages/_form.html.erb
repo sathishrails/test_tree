@@ -13,16 +13,48 @@
 	
   <div class="field">
     <%= f.label :parent_id %><br />
-    <%= f.collection_select :parent_id , Page.all(:order => "name") , :id , :name  %>
+    <%= f.collection_select :parent_id , Page.all(:order => "name") , :id , :name , :class => 'name_id'  %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name , :class => 'name_id'  %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
+<ul id="example" class="filetree">
+		  <% for page in Page.roots %>  
+			 <ul><li>   <%=  page.name %>
+				<% for child in page.children %>
+				<ul> <li> <%= child.name %> 
+					<% for sub_child in child.children %>
+						<ul> <li> <%= sub_child.name %> </li></ul>			
+					<%end%></li></ul>
+				<%end%>
+			</li></ul>  
+		   <% end %>
+
+
+		<!-- <li>Folder 1
+			<ul>
+				<li>Item 1.1</span></li>
+			</ul>
+		</li>
+		<li>Folder 2</span>
+			<ul>
+				<li>Subfolder 2.1</span>
+					<ul>
+						<li>File 2.1.1</span></li>
+						<li>File 2.1.2</span></li>
+					</ul>
+				</li>
+				<li>File 2.2</span></li>
+			</ul>
+		</li>
+		<li class="closed">Folder 3 (closed at start)</span>
+			<ul>
+				<li>File 3.1</span></li>
+			</ul>
+		</li>
+		<li>File 4</span></li>-->
+	</ul> 
   <div class="actions">
     <%= f.submit %>
   </div>

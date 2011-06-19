@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+ 
+  <link rel="stylesheet" href="http://jquery.bassistance.de/treeview/jquery.treeview.css" type="text/css" />
+  <script type="text/javascript" src="http://jquery.bassistance.de/treeview/jquery.treeview.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#example").treeview();
+  });
+  </script>
+  
+</head>
+<body>
+  <ul id="example" >
+		<li>Folder 1
+			<ul>
+				<li>Item 1.1</li>
+			</ul>
+		</li>
+		<li>Folder 2
+			<ul>
+				<li>Subfolder 2.1
+					<ul>
+						<li>File 2.1.1</li>
+						<li>File 2.1.2</li>
+					</ul>
+				</li>
+				<li>File 2.2</li>
+			</ul>
+		</li>
+		<li >Folder 3 (closed at start)
+			<ul>
+				<li>File 3.1</li>
+			</ul>
+		</li>
+		<li>File 4</li>
+	</ul>
+</body>
+</html>
